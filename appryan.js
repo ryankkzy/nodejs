@@ -45,7 +45,19 @@ servidor.get('/calcula/div/:n1/:n2', (req,resp) => {
             numero1: n1,
             numero2: n2
         },
-        subtracao: subtracao
+        subtracao: div
+    })
+})
+
+servidor.post('/media', (req,resp) => {
+    let n1 = req.body.nota1
+    let n2 = req.body.nota2
+    let n3 = req.body.nota3
+
+    let media = (n1 + n2 + n3) / 3
+
+    resp.send({
+        media: media.toFixed(1)
     })
 })
 
